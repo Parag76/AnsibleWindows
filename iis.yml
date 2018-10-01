@@ -20,8 +20,7 @@
       src: files/index.html
       dest: "C:\\inetpub\\wwwroot\\index.html"
 
-  - name: create new website's directory
-    win_file: path={{ ansible_site_path }} state=directory
+  
   - name: create new website
     win_iis_website:
       name: "Ansible Test Site"
