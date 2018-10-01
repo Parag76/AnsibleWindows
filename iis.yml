@@ -43,7 +43,7 @@
     win_file: path={{ ansible_test_staging_path }} state=directory    
   - name: get code to deploy staging path
     win_copy:
-      src: files/website/master.zip
+      src: files/master.zip
       dest: "{{ ansible_test_staging_path }}"
   - name: unzip code to site path
     win_unzip:
