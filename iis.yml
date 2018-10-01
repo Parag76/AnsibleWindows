@@ -20,19 +20,20 @@
       src: files/index.html
       dest: "C:\\inetpub\\wwwroot\\index.html"
 
-  
+  - name: create new website's directory
+    win_file: path={{ ansible_site_path }} state=directory  
   - name: create new website
     win_iis_website:
       name: "Ansible Test Site"
       state: started
-      port: 8080
+      port: 8090
       physical_path: "{{ ansible_site_path }}"
   - name: Open site's port on firewall
     win_firewall_rule:
-      name: mysite8080
+      name: mysite8090
       enable: yes
       state: present
-      localport: 8080
+      localport: 8090
       action: Allow
       direction: In
       protocol: Tcp
