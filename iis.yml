@@ -44,9 +44,9 @@
     win_file: path={{ ansible_test_staging_path }} state=directory
   - name: fetch files from Artifactory
     get_url:
-    url: https://github.com/Microsoft/project-html-website/archive/master.zip
-    dest: /files/website
-    mode: 0440    
+      url: https://github.com/Microsoft/project-html-website/archive/master.zip
+      dest: /files/website
+      mode: 0440    
   - name: get code to deploy staging path
     win_copy:
       src: files/website/master.zip
