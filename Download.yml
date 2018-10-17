@@ -4,7 +4,5 @@
   - jquery_directory: E:\Download1
   - person: 'Susie%20Smith'
   tasks:
-  - name: Create directory for download
-    file: dest={{jquery_directory}} state=directory mode=0755
   - name: Grab a bunch of files
-    get_url: url=https://artifactory.analog.com/artifactory/list/adiweb-generic/adiweb_0.0.6.0/  dest={{jquery_directory}} mode=0444
+    get_url: url=https://artifactory.analog.com/artifactory/list/adiweb-generic/adiweb_0.0.6.0/  dest=E:\Download mode=0444
