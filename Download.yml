@@ -4,7 +4,5 @@
   - name: DownloadArtifacts
     get_url:
     url: https://artifactory.analog.com/artifactory/list/adiweb-generic/adiweb_0.0.6.0/
-    dest: AnsibleDemo/Download
+    dest: //NWD2JENKINSPOC1/Download
     mode: 0440
-
-
