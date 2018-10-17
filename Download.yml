@@ -5,4 +5,6 @@
   - person: 'Susie%20Smith'
   tasks:
   - name: Grab a bunch of files
-    get_url: url=https://artifactory.analog.com/artifactory/list/adiweb-generic/adiweb_0.0.6.0/  dest=E:\Download mode=0444
+    win_get_url:
+    url: https://artifactory.analog.com/artifactory/list/adiweb-generic/adiweb_0.0.6.0/webedit.css
+    dest: C:\Users\RandomUser\webedit.css
