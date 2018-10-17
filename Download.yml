@@ -1,8 +1,8 @@
 ---
-- hosts: windows
   tasks:
   - name: DownloadArtifacts
+    become: no
     get_url:
     url: https://artifactory.analog.com/artifactory/list/adiweb-generic/adiweb_0.0.6.0/
-    dest: //NWD2JENKINSPOC1/Download
+    dest: /AnsibleDemo/Download
     mode: 0440
