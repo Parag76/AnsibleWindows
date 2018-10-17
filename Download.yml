@@ -1,7 +1,7 @@
 ---
 - hosts: windows
   vars:
-  - jquery_directory: /download
+  - jquery_directory: E:\Download1
   - person: 'Susie%20Smith'
   tasks:
   - name: Create directory for download
