@@ -1,7 +1,7 @@
 ---
 - name: DownloadArtifacts
-    become: no
-    get_url:
+  become: no
+  get_url:
     url: https://artifactory.analog.com/artifactory/list/adiweb-generic/adiweb_0.0.6.0/
     dest: /AnsibleDemo/Download
-    mode: 0440
+  deligate_to: 127.0.0.1
