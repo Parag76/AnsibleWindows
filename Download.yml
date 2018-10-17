@@ -7,4 +7,4 @@
   - name: Grab a bunch of files
     win_get_url:
       url: https://artifactory.analog.com/artifactory/list/adiweb-generic/adiweb_0.0.6.0/webedit.css
-      dest: C:\Users\RandomUser\webedit.css
+      dest: E:\Download\webedit.css
