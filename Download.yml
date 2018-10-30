@@ -1,10 +1,41 @@
 ---
 - hosts: windows
   vars:
-  - jquery_directory: E:\Download1
-  - person: 'Susie%20Smith'
+    myAnalogSitePath: "E:\\inetpub\\My"
+    staging_path: "E:\\download"    
+    env: "DEV"
+    ReleaseVersion: "19.1.1.0.85"
+    envFolder: "env-specific"
+    bkpPath: "E:\\Backup"
   tasks:
-  - name: Grab a bunch of files
+  - name: Downloading latest release to staging folder
     win_get_url:
-      url: https://artifactory.analog.com/artifactory/list/adiweb-generic/adiweb_0.0.6.0/xsl/webedit.css
-      dest: E:\Download\webedit.css
+      url: https://artifactory.analog.com/artifactory/list/MyAnalog-generic/{{ ReleaseVersion }}.zip
+      dest: E:\Download\
+      force_basic_auth: yes
+      url_username: svc_easdevops_deploy
+      url_password: Pass@word!
+  - name: Unzip latest release file in staging folder
+    win_unzip:
+      src: "{{ staging_path }}\\{{ ReleaseVersion }}.zip"
+      dest: "{{ staging_path }}\\"      
+    tags: unzip
+  - name: Take Backup of website folder
+    win_copy:
+      src: "{{ myAnalogSitePath }}\\"
+      dest: "{{ bkpPath }}\\"
+      remote_src: yes
+  - name: Copying Environment Specific files to website folder
+    win_copy:
+      src: "{{ staging_path }}\\{{ ReleaseVersion }}\\{{envFolder}}\\{{env}}"
+      dest: "{{ myAnalogSitePath }}\\"
+      remote_src: yes
+  - name: Clean up Environment Specific
+    win_file:
+      path: "{{ staging_path }}\\{{ ReleaseVersion }}\\{{envFolder}}"
+      state: absent
+  - name: Copying Deployment files to website folder
+    win_copy:
+      src: "{{ staging_path }}\\{{ ReleaseVersion }}\\"
+      dest: "{{ myAnalogSitePath }}\\"
+      remote_src: yes
