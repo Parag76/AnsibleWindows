@@ -9,12 +9,9 @@
     bkpPath: "E:\\Backup"
   tasks:
   - name: Downloading latest release to staging folder
-    win_get_url:
-      url: https://artifactory.analog.com/artifactory/list/MyAnalog-generic/{{ ReleaseVersion }}.zip
-      dest: E:\Download\
-      force_basic_auth: yes
-      url_username: svc_easdevops_deploy
-      url_password: Pass@word!
+    win_copy:
+      src: //NWD2ALGWCMDEV1/Inetpub/sitecore/Website/Views/web.config
+      dest: E:\Download\web.config
   - name: Unzip latest release file in staging folder
     win_unzip:
       src: "{{ staging_path }}\\{{ ReleaseVersion }}.zip"
