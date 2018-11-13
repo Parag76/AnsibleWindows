@@ -12,6 +12,7 @@
     win_copy:
       src: //NWD2ALGWCMDEV1/Inetpub/sitecore/Website/Views/web.config
       dest: E:\Download\web.config
+      remote_src: yes
   - name: Unzip latest release file in staging folder
     win_unzip:
       src: "{{ staging_path }}\\{{ ReleaseVersion }}.zip"
