@@ -4,15 +4,17 @@
     myAnalogSitePath: "E:\\inetpub\\My"
     staging_path: "E:\\download"    
     env: "DEV"
-    ReleaseVersion: "19.1.1.0.85"
+    ReleaseVersion: "19.1.1.0.88"
     envFolder: "env-specific"
     bkpPath: "E:\\Backup"
   tasks:
   - name: Downloading latest release to staging folder
-    win_copy:
-      src: //NWD2ALGWCMDEV1/Inetpub/sitecore/Website/Views/web.config
-      dest: E:\Download\web.config
-      remote_src: yes
+    win_get_url:
+      url: http://nwd2jenkinspoc1:9095/MyAnalog/{{ ReleaseVersion }}.zip
+      dest: E:\Download\
+      force_basic_auth: yes
+      url_username: svc_easdevops_deploy
+      url_password: Pass@word!
   - name: Unzip latest release file in staging folder
     win_unzip:
       src: "{{ staging_path }}\\{{ ReleaseVersion }}.zip"
