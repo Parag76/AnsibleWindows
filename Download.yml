@@ -18,7 +18,7 @@
   - name: Unzip latest release file in staging folder
     win_unzip:
       src: "{{ staging_path }}\\{{ ReleaseVersion }}.zip"
-      dest: "{{ staging_path }}\\"      
+      dest: "{{ staging_path }}\\ReleaseVersion"      
     tags: unzip
   - name: Take Backup of website folder
     win_copy:
