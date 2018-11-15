@@ -1,10 +1,10 @@
 ---
 - hosts: windows
   vars:
-    myAnalogSitePath: "E:\\inetpub\\My"
-    staging_path: "E:\\download"    
-    env: "DEV"
     ReleaseVersion: "{{ deployversion }}"
+    myAnalogSitePath: "E:\\inetpub\\My"
+    staging_path: "E:\\download\\{{ ReleaseVersion }}"    
+    env: "DEV"    
     envFolder: "env-specific"
     bkpPath: "E:\\Backup"
   tasks:
