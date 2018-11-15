@@ -4,7 +4,7 @@
     myAnalogSitePath: "E:\\inetpub\\My"
     staging_path: "E:\\download"    
     env: "DEV"
-    ReleaseVersion: "19.1.1.0.88"
+    ReleaseVersion: "{{ deployversion }}"
     envFolder: "env-specific"
     bkpPath: "E:\\Backup"
   tasks:
