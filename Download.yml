@@ -8,6 +8,10 @@
     envFolder: "env-specific"
     bkpPath: "E:\\Backup"
   tasks:
+  - name: Create directory structure
+    win_file:
+      path: "{{ staging_path }}"
+      state: directory
   - name: Downloading latest release to staging folder
     win_get_url:
       url: http://nwd2jenkinspoc1:9095/MyAnalog/{{ ReleaseVersion }}.zip
