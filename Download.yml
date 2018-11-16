@@ -15,7 +15,7 @@
       state: directory
   - name: Downloading latest release to staging folder
     win_get_url:
-      url: {{buildSrv}}{{ ReleaseVersion }}.zip
+      url: "{{ buildSrv }}{{ ReleaseVersion }}.zip"
       dest: "{{ staging_path }}\\"
       force_basic_auth: yes
       url_username: svc_easdevops_deploy
